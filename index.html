@@ -12,30 +12,39 @@
   <body ng-controller="mainController" ng-app="app">
 
 
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 
-    <p>Enter your percentage:</p>
-    <p>Percent : <input type="text" ng-model="completionPercent" ng-init="completionPercent = 42" placeholder="Enter name here"></p>
-    <h1>{{completionPercent}} %</h1>
+    <div>
+      <form novalidate ng-init="init(78, 4, 'indefinite')">
+        Percentage: <input type="text" ng-model="completionPercent" placeholder="Enter Percentage"/><br />
+        Duration: <input type="text" ng-model="duration" placeholder="Enter Duration"/><br />
+        Repeat: <input type="radio" ng-model="repeat" value="indefinite" />indefinite
+        <input type="radio" ng-model="repeat" value="2" />1<br />
+        <input type="submit" ng-click="submit()" value="Again" />
+      </form>
+      <pre>Percentage = {{percent}}</pre>
+      <pre>Repeat = {{repeat}}</pre>
+    </div>
 
-
-
+    <h1>{{completionPercent+'%'}}</h1>
 
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
           <linearGradient id="lg" x1="0.5" y1="1" x2="0.5" y2="0">
-              <stop offset="0%" stop-opacity="1" stop-color="royalblue"/>
-              <stop offset="{{completionPercent}}%" stop-opacity="1" stop-color="royalblue">
-                <animate attributeName="offset" values="0;{{completionPercent/100}};0" repeatCount="indefinite" dur="2s" begin="0s"/>
+              <stop stop-opacity="1" stop-color="royalblue"/>
+              <stop  stop-opacity="1" stop-color="royalblue">
+                <animate attributeName="offset" values="0;{{completionPercent/100}};" repeatCount={{repeat}} dur="{{duration+'s'}}" repeatDur="00:30" begin="0s"/>
               </stop>
-              <stop offset="{{completionPercent}}%" stop-opacity="0" stop-color="royalblue">
-                <animate attributeName="offset" values="0;{{completionPercent/100}};0" repeatCount="indefinite" dur="2s"  begin="0s"/>
+              <stop  stop-opacity="0" stop-color="royalblue">
+                <animate attributeName="offset" values="0;{{completionPercent/100}};" repeatCount={{repeat}} dur="{{duration+'s'}}" repeatDur="00:30" begin="0s"/>
               </stop>
-              <stop offset="100%" stop-opacity="0" stop-color="royalblue"/>
+              <stop stop-opacity="0" stop-color="royalblue"/>
           </linearGradient>
           <circle cx="50" cy="50" r="45" fill="url(#lg)" stroke="crimson" stroke-width="5"/>
           <text x="50" y="50" font-family="sans-serif" font-size="20px" text-anchor="middle" fill="red">{{completionPercent}} %</text>
     </svg>
-
-
 
   </body>
 </html>
