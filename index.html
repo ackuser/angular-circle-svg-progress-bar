@@ -18,27 +18,31 @@
     <br/>
 
     <div>
-      <form novalidate ng-init="init(78, 4, 'indefinite')">
+      <form novalidate ng-init="init(78, 4, '1', 'false')">
         Percentage: <input type="text" ng-model="completionPercent" placeholder="Enter Percentage"/><br />
         Duration: <input type="text" ng-model="duration" placeholder="Enter Duration"/><br />
         Repeat: <input type="radio" ng-model="repeat" value="indefinite" />indefinite
-        <input type="radio" ng-model="repeat" value="2" />1<br />
+        <input type="radio" ng-model="repeat" value="1" />1<br />
+        Return: <input type="radio" ng-model="return" value=true />true
+        <input type="radio" ng-model="return" value=false />false<br />
         <input type="submit" ng-click="submit()" value="Again" />
       </form>
       <pre>Percentage = {{percent}}</pre>
       <pre>Repeat = {{repeat}}</pre>
+      <pre>Duration = {{duration}}</pre>
+      <pre>Interval = {{interval}}</pre>
     </div>
 
-    <h1>{{completionPercent+'%'}}</h1>
+
 
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
           <linearGradient id="lg" x1="0.5" y1="1" x2="0.5" y2="0">
               <stop stop-opacity="1" stop-color="royalblue"/>
               <stop  stop-opacity="1" stop-color="royalblue">
-                <animate attributeName="offset" values="0;{{completionPercent/100}};" repeatCount={{repeat}} dur="{{duration+'s'}}" repeatDur="00:30" begin="0s"/>
+                <animate id="animation1" attributeName="offset" values="{{interval}}" repeatCount={{repeat}} dur="{{duration}}" repeatDur="00:30" begin="0s"/>
               </stop>
               <stop  stop-opacity="0" stop-color="royalblue">
-                <animate attributeName="offset" values="0;{{completionPercent/100}};" repeatCount={{repeat}} dur="{{duration+'s'}}" repeatDur="00:30" begin="0s"/>
+                <animate id="animation2" attributeName="offset" values="{{interval}}" repeatCount={{repeat}} dur="{{duration}}" repeatDur="00:30" begin="0s"/>
               </stop>
               <stop stop-opacity="0" stop-color="royalblue"/>
           </linearGradient>
