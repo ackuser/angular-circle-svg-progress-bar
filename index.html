@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   </head>
 
-  <body ng-controller="mainController" ng-app="app">
+  <body ng-app="app">
 
 
     <br/>
@@ -17,38 +17,28 @@
     <br/>
     <br/>
 
-    <div>
-      <form novalidate ng-init="init(78, 4, '1', 'false')">
-        Percentage: <input type="text" ng-model="completionPercent" placeholder="Enter Percentage"/><br />
-        Duration: <input type="text" ng-model="duration" placeholder="Enter Duration"/><br />
-        Repeat: <input type="radio" ng-model="repeat" value="indefinite" />indefinite
-        <input type="radio" ng-model="repeat" value="1" />1<br />
-        Return: <input type="radio" ng-model="return" value=true />true
-        <input type="radio" ng-model="return" value=false />false<br />
-        <input type="submit" ng-click="submit()" value="Again" />
-      </form>
-      <pre>Percentage = {{percent}}</pre>
-      <pre>Repeat = {{repeat}}</pre>
-      <pre>Duration = {{duration}}</pre>
-      <pre>Interval = {{interval}}</pre>
-    </div>
+    <div ng-controller="testCtrl" ng-init="init2(78, 4, '1', 'false')">
+      <div>
+        <form novalidate ng-init="init(78, 4, '1', 'false')">
+          Percentage: <input type="text" ng-model="completionPercent" placeholder="Enter Percentage"/><br />
+          Duration: <input type="text" ng-model="duration" placeholder="Enter Duration"/><br />
+          Repeat: <input type="radio" ng-model="repeat" value="indefinite" />indefinite
+          <input type="radio" ng-model="repeat" value="1" />1<br />
+          Return: <input type="radio" ng-model="return" value=true />true
+          <input type="radio" ng-model="return" value=false />false<br />
+          <input type="submit" ng-click="submit()" value="Again" />
+        </form>
+        <pre>Percentage = {{completionPercent}}</pre>
+        <pre>Repeat = {{repeat}}</pre>
+        <pre>Duration = {{duration}}</pre>
+        <pre>Interval = {{interval}}</pre>
+      </div>
 
 
+  <pie-chart 	duration='{{duration}}' completionPercent='{{completionPercent}}'
+                repeat='{{repeat}}' returning='{{return}}' interval='{{interval}}'></pie-chart>
+</div>
 
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
-          <linearGradient id="lg" x1="0.5" y1="1" x2="0.5" y2="0">
-              <stop stop-opacity="1" stop-color="royalblue"/>
-              <stop  stop-opacity="1" stop-color="royalblue">
-                <animate id="animation1" attributeName="offset" values="{{interval}}" repeatCount={{repeat}} dur="{{duration}}" repeatDur="00:30" begin="0s"/>
-              </stop>
-              <stop  stop-opacity="0" stop-color="royalblue">
-                <animate id="animation2" attributeName="offset" values="{{interval}}" repeatCount={{repeat}} dur="{{duration}}" repeatDur="00:30" begin="0s"/>
-              </stop>
-              <stop stop-opacity="0" stop-color="royalblue"/>
-          </linearGradient>
-          <circle cx="50" cy="50" r="45" fill="url(#lg)" stroke="crimson" stroke-width="5"/>
-          <text x="50" y="50" font-family="sans-serif" font-size="20px" text-anchor="middle" fill="red">{{completionPercent}} %</text>
-    </svg>
 
   </body>
 </html>

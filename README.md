@@ -19,3 +19,11 @@ http://stackoverflow.com/questions/14964049/inline-svg-and-jquery-selection
 http://www.heapoverflow.me/question-animating-svg-path-when-changing-value-27279225
 
 http://jsfiddle.net/fg9e7eo4/1/
+
+https://docs.angularjs.org/api/ng/directive/ngSwitch
+
+https://docs.angularjs.org/guide/directive (See ngAttr attribute bindings)
+
+http://stackoverflow.com/questions/19568226/rendering-svg-templates-in-angularjs-directives
+
+http://weblogs.asp.net/dwahlin/creating-custom-angularjs-directives-part-2-isolate-scope
