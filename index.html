@@ -17,26 +17,26 @@
     <br/>
     <br/>
 
-    <div ng-controller="testCtrl" ng-init="init2(78, 4, '1', 'false')">
+    <div ng-controller="testCtrl" ng-init="init2(78, 4, '1', 'true')">
       <div>
-        <form novalidate ng-init="init(78, 4, '1', 'false')">
-          Percentage: <input type="text" ng-model="completionPercent" placeholder="Enter Percentage"/><br />
-          Duration: <input type="text" ng-model="duration" placeholder="Enter Duration"/><br />
-          Repeat: <input type="radio" ng-model="repeat" value="indefinite" />indefinite
-          <input type="radio" ng-model="repeat" value="1" />1<br />
-          Return: <input type="radio" ng-model="return" value=true />true
-          <input type="radio" ng-model="return" value=false />false<br />
+        <form novalidate>
+          Percentage: <input type="text" ng-model="graph.completionPercent" placeholder="Enter Percentage"/><br />
+          Duration: <input type="text" ng-model="graph.duration" placeholder="Enter Duration"/><br />
+          Repeat: <input type="radio" ng-model="graph.repeat" value="indefinite" />indefinite
+          <input type="radio" ng-model="graph.repeat" value="1" />1<br />
+          Return: <input type="radio" ng-model="graph.returning" value="true"/>true
+          <input type="radio" ng-model="graph.returning" value="false" />false<br />
           <input type="submit" ng-click="submit()" value="Again" />
         </form>
-        <pre>Percentage = {{completionPercent}}</pre>
-        <pre>Repeat = {{repeat}}</pre>
-        <pre>Duration = {{duration}}</pre>
-        <pre>Interval = {{interval}}</pre>
+        <pre>Percentage ==> {{graph.completionPercent}}</pre>
+        <pre>Repeat ==> {{graph.repeat}}</pre>
+        <pre>Duration ==> {{graph.duration}}</pre>
+        <pre>Interval ==> {{graph.interval}}</pre>
+        <pre>Returning ==> {{graph.returning}}</pre>
       </div>
 
 
-  <pie-chart 	duration='{{duration}}' completionPercent='{{completionPercent}}'
-                repeat='{{repeat}}' returning='{{return}}' interval='{{interval}}'></pie-chart>
+  <pie-chart 	graph='{{graph}}'></pie-chart>
 </div>
 
 
