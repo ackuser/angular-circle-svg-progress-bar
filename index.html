@@ -26,17 +26,15 @@
           <input type="radio" ng-model="graph.repeat" value="1" />1<br />
           Return: <input type="radio" ng-model="graph.returning" value="true"/>true
           <input type="radio" ng-model="graph.returning" value="false" />false<br />
-          <input type="submit" ng-click="submit()" value="Again" />
         </form>
         <pre>Percentage ==> {{graph.completionPercent}}</pre>
         <pre>Repeat ==> {{graph.repeat}}</pre>
         <pre>Duration ==> {{graph.duration}}</pre>
-        <pre>Interval ==> {{graph.interval}}</pre>
         <pre>Returning ==> {{graph.returning}}</pre>
       </div>
 
 
-  <pie-chart duration='graph.duration' percentage='graph.completionPercent' repeat='graph.repeat' returning='graph.returning' interval='graph.interval'></pie-chart>
+  <pie-chart duration='graph.duration' percentage='graph.completionPercent' repeat='graph.repeat' returning='graph.returning'></pie-chart>
 </div>
 
 
