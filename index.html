@@ -20,7 +20,7 @@
     <div ng-controller="testCtrl" ng-init="init2(78, 4, '1', 'true')">
       <div>
         <form novalidate>
-          Percentage: <input type="text" ng-model="graph.completionPercent" placeholder="Enter Percentage"/><br />
+          Percentage: <input type="text" ng-model="graph.completionPercent" value="30" placeholder="Enter Percentage"/><br />
           Duration: <input type="text" ng-model="graph.duration" placeholder="Enter Duration"/><br />
           Repeat: <input type="radio" ng-model="graph.repeat" value="indefinite" />indefinite
           <input type="radio" ng-model="graph.repeat" value="1" />1<br />
@@ -36,7 +36,7 @@
       </div>
 
 
-  <pie-chart 	graph='{{graph}}'></pie-chart>
+  <pie-chart duration='graph.duration' percentage='graph.completionPercent' repeat='graph.repeat' returning='graph.returning' interval='graph.interval'></pie-chart>
 </div>
 
 
